@@ -1,0 +1,105 @@
+*{
+	box-sizing: border-box;
+}
+
+body {
+	/*to be flexible whatever the browser to screen dimensions are*/
+	height: 100vh;
+	background-color: #232323;
+	margin: 0;
+	/*google font*/
+	font-family: Montserrat;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	background: steelblue;
+	margin: 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 300%;
+	line-height: 2.5;
+}
+
+#stripe {
+	background: white;
+	height: 30px;
+	text-align: center;
+}
+
+button {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: bold;
+	color: steelblue;
+	letter-spacing: 1px;
+	/*match the header*/
+	font-size: inherit;
+	/*hovering effect time*/
+	transition: all 0.3s;
+}
+
+/*special design when hovering over the 2 buttons*/
+button:hover{
+	color: white;
+	background: steelblue;
+}
+
+/*the timer place*/
+span {
+	display: inline-block;
+	font-weight: bold;
+	width: 48%
+}
+
+#board {
+	width: 640px;
+	height: 640px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px auto;
+	perspective: 1000px;
+}
+
+.square {
+	/*center the page*/
+	width: calc(16% - 10px);
+	height: calc(16% - 10px);
+	margin: 5px;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: transform .5s;
+	transform: scale(1);
+}
+
+.square:active {
+	/*click effect by minimizing the card to 0.97 of its original size for 0.2s*/
+	transform: scale(0.97);
+	transition: transform 0.2s;
+}
+
+.square.flip {
+	/*flip rotation effect*/
+	transform: rotateY(180deg);
+}
+.card {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	position: absolute;
+	transform: rotateY(180deg);
+}
+
+.back {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	/*remove any extras*/
+	background: #232323;
+	position: absolute;
+	/*hide backface so the photo can appear*/
+	backface-visibility: hidden;
+}
